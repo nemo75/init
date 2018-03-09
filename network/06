@@ -1,0 +1,3 @@
+Les informations concernant notre DNS est dans le path suivant : /etc/resolv.conf
+
+il suffit donc de lancer la commande suivante : cat /etc/resolv.conf
