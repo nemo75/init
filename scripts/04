@@ -1,0 +1,14 @@
+#!/bin/sh
+
+if [ ! -f ./crontab.md5 ]; then
+	md5sum /etc/crontab > ./crontab.md5; echo "New contrable md5 check sum created"
+fi
+md5sum -c crontab.md5
+rc=$?
+
+if [ $rc != 0 ]
+	then
+		echo "Des modifications ont ete faites sur /etc/crontab" | mail -s "Alerte surveillance modification fichier /etc/crontab" thomas.bricquet@gmail.com && md5sum /etc/crontab > crontab.md5
+fi
+
+#00 00 * * * 1  sh /home/tic/init/scripts/04
