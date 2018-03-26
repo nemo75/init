@@ -1,3 +1,4 @@
+#!/bin/sh
+
 du -Sh $1 | sort -hr
 
-## crontab -e 00 04 * * 1 sh 02
